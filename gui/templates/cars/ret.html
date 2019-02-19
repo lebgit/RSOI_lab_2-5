@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Возврат машины{% endblock %}
+{% block body %}
+    <form action="" method="post">
+        <p>
+             <h4 >Идентификатор машины: {{ car_id }}</h4>
+        </p>
+         <p>
+             <h4 >Вернуть</h4>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Нет">
+            <input type="submit" name="submit" value="Да">
+        </p>
+    </form>
+{% endblock %}

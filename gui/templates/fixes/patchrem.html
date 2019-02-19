@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Уволить механика{% endblock %}
+{% block body %}
+  <form action="" method=post>
+    <p>
+      <h4 >Идентификатор мастерской: {{ fix_id }}</h4>
+
+    <p>
+      {% if meh_id!='' %}
+            <h4 >Идентификатор мастерской: <input type=text placeholder="Идентификатор механика" name=meh_id value="{{ meh_id }}"></h4>
+
+
+      {% else  %}
+            <h4 >Идентификатор мастерской: <input type=text placeholder="Идентификатор механика" name=meh_id value="{{ request.form.meh_id }}"></h4>
+      {% endif %}
+      <p>
+
+
+    <input type=submit value=Ok>
+    <p>
+  </form>
+{% endblock %}

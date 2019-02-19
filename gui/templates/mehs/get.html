@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Информация о механике{% endblock %}
+{% block body %}
+    <form action="" method="post">
+        <p>
+            <input type=text placeholder="Идентификатор" name=meh_id value="{{ request.form.meh_id }}">
+        </p>
+        <p>
+            <input type="submit" value="Найти">
+        </p>
+        {% if meh_found %}
+            <table>
+            <tr>
+                <th> Идентификатор </th>
+                <td> {{ meh["meh_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Имя </th>
+                <td> {{ meh["name"] }}</td>
+            </tr>
+            <tr>
+                <th> Стаж </th>
+                <td> {{ meh["lvl"] }}</td>
+            </tr>
+            <tr>
+                <th> Год рождения </th>
+                <td> {{ meh["year"] }}</td>
+            </tr>
+            </table>
+        {% endif %}
+    </form>
+{% endblock %}

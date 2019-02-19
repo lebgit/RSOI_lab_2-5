@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Добавить мастерскую{% endblock %}
+{% block body %}
+  <form action="" method=post>
+    <p>
+    <input type=text placeholder="Дата создания" name=date_time value="{{ request.form.date_time }}">
+    <p>
+
+    <input type=submit value=Ok>
+    <p>
+  </form>
+{% endblock %}

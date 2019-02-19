@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Информация о механике{% endblock %}
+{% block body %}
+    <form action="" method="post">
+    <p>
+        <p>
+          {% if flag2==1 %}
+              <input type=hidden placeholder="Идентификатор" name=flag2 value="{{ fix_id[0] }}">
+        {% else %}
+               <input type=hidden placeholder="Идентификатор" name=flag2 value="0">
+          {% endif %}
+        </p>
+      <h4 >Идентификатор механика: {{ meh_id }}</h4>
+        {% if flag2==1 %}
+
+            {% for item in fix_id %}
+            <table>
+                <h4 >Идентификатор мастерской: {{item}}</h4>
+            </table>
+            {% endfor %}
+        {% endif %}
+        <p>Уволить механика?</p>
+        <p>
+            <input type="submit" name="submit" value="Нет">
+            <input type="submit" name="submit" value="Да">
+        </p>
+    </form>
+{% endblock %}

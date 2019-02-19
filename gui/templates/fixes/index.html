@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+<title>{% block title %}Мастерские{% endblock %}</title>
+    <p class=nav>
+    <a href="{{ url_for('fixes.get_all') }}">Посмотреть список всех мастерских</a>
+    <p class=nav>
+    {% if flag == 'True' %}
+    <a href="{{ url_for('fixes.create') }}">Создать мастерскую</a>
+    {% endif %}
+{% endblock %}

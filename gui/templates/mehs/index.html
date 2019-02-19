@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+<title>{% block title %}Механик{% endblock %}</title>
+    <p class=nav>
+    <a href="{{ url_for('mehs.create') }}">Добавить нового механика</a>
+    <p class=nav>
+    <a href="{{ url_for('mehs.get') }}">Посмотреть подробную информацию о механике</a>
+    <p class=nav>
+    <a href="{{ url_for('mehs.get_all') }}">Посмотреть список всех механиков</a>
+{% endblock %}

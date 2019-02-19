@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Информация о пользователе{% endblock %}
+{% block body %}
+    <form action="" method="get">
+            <table>
+            <tr>
+                <th> Идентификатор пользователя </th>
+                <td> {{ user["user_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Имя пользователя </th>
+                <td> {{ user["l_name"] }}</td>
+            </tr>
+            <tr>
+                <th> Admin</th>
+                <td> {{ user["admin"] }}</td>
+            </tr>
+            <tr>
+                <th> Статус машины (на починке/нет)</th>
+                <td> {{ user["status"] }}</td>
+            </tr>
+            </table>
+    </form>
+{% endblock %}

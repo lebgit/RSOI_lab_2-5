@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Информация о машине{% endblock %}
+{% block body %}
+    <form action="" method="get">
+        {% if car_found %}
+            <table>
+            <tr>
+                <th> Идентификатор машины </th>
+                <td> {{ car["car_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Идентификатор мастерской </th>
+                <td> {{ car["fix_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Идентификатор пользователя </th>
+                <td> {{ car["user_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Название </th>
+                <td> {{ car["name"] }}</td>
+            </tr>
+            </table>
+ {% endif %}
+            {% if admin == 'True' and car_found %}
+                <a href="{{ url_for('cars.ret',car_id=car['car_id'])}}">Выполнить заказ</a>
+                {% endif %}
+
+    </form>
+{% endblock %}

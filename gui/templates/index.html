@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+    <p class=nav>
+    <a href="{{ url_for('mehs.index') }}">Механики</a>
+    <p class=nav>
+    <a href="{{ url_for('fixes.index',flag=flag) }}">Мастерские</a>
+    <p class=nav>
+    <a href="{{ url_for('cars.index') }}">Машины</a>
+    <p class=nav>
+    <a href="{{ url_for('users.index',flag=flag) }}">Пользователи</a>
+{% endblock %}

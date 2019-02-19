@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Информация о мастерских{% endblock %}
+{% block body %}
+    <form action="" method="get">
+            {% for item in fixes %}
+                <table>
+                <tr>
+                    <th> Идентификатор </th>
+                    <td> {{ item["fix_id"] }}</td>
+                </tr>
+                <tr>
+                    <th> Кол-во механиков </th>
+                    <td> {{ item["number_of_mehs"] }}</td>
+                </tr>
+                <tr>
+                    <th> Общее количество машин </th>
+                    <td> {{ item["number_of_cars"] }}</td>
+                </tr>
+                <tr>
+                    <th> Дата создания </th>
+                    <td> {{ item["date_time"] }}</td>
+                </tr>
+                </table>
+                <a href="{{ url_for('fixes.get', fix_id=item["fix_id"]) }}">Посмотреть мастерскую</a>
+            {% endfor %}
+            <p></p>
+            {% if prev_url %}
+                <a href="{{ url_for('fixes.get_all', page=prev_page) }}">Предыдущие сеансы</a>
+            {% endif %}
+            {% if next_url %}
+                <a href="{{ url_for('fixes.get_all', page=next_page) }}" >Следующие сеансы</a>
+            {% endif %}
+    </form>
+{% endblock %}

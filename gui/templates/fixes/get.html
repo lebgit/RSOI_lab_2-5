@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}Информация о мастерской{% endblock %}
+{% block body %}
+    <form action="" method="post">
+
+    <h3>Мастерская</h3>
+            <table>
+            <tr>
+                <th> Идентификатор </th>
+                <td> {{ fix["fix_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Дата открытия </th>
+                <td> {{ fix["date_time"] }}</td>
+            </tr>
+            </table>
+    <h3>Машины</h3>
+                {% for i in range(number_of_cars) %}
+                    {% if i>0 %}
+                        {% if cars[i-1] %}
+                            <input type=hidden name="car_id" value="{{ cars[i] }}"/>
+                            <a style="text-decoration-color: #00FF00" href="{{ url_for('cars.get1', car_id=cars[i-1]) }}">{{ cars[i-1] }}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+    <h3>Механики</h3>
+                {% for item in mehs %}
+                <table>
+                <tr>
+                    <th> Идентификатор </th>
+                    <td> {{ item["meh_id"] }}</td>
+                </tr>
+                <tr>
+                    <th> Имя </th>
+                    <td> {{ item["name"] }}</td>
+                </tr>
+                <tr>
+                    <th> Стаж </th>
+                    <td> {{ item["lvl"] }}</td>
+                </tr>
+                <tr>
+                    <th> Год рождения </th>
+                    <td> {{ item["year"] }}</td>
+                </tr>
+                </table>
+          <a href="{{ url_for('fixes.patchrem',fix_id=fix["fix_id"], meh_id=item["meh_id"] )}}">Уволить механика</a>
+    {% endfor %}
+
+    </form>
+
+{% endblock %}

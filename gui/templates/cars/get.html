@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Информация о машине{% endblock %}
+{% block body %}
+    <form action="" method="post">
+        <p>
+            <input type=text placeholder="Идентификатор" name=car_id value="{{ request.form.car_id }}">
+        </p>
+        <p>
+            <input type="submit" value="Найти">
+        </p>
+        {% if ticket_found %}
+            <table>
+            <tr>
+                <th> Идентификатор машины </th>
+                <td> {{ car["car_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Идентификатор мастерской </th>
+                <td> {{ car["car_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Идентификатор пользователя </th>
+                <td> {{ car["user_id"] }}</td>
+            </tr>
+            <tr>
+                <th> Название </th>
+                <td> {{ car["name"] }}</td>
+            </tr>
+            </table>
+        {% endif %}
+    </form>
+{% endblock %}

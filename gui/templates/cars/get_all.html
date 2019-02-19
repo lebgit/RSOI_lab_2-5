@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Информация о машинах{% endblock %}
+{% block body %}
+    <form action="" method="get">
+            {% for item in cars %}
+                <table>
+                <tr>
+                    <th> Идентификатор машины </th>
+                    <td> {{ item["car_id"] }}</td>
+                </tr>
+                <tr>
+                    <th> Идентификатор мастерской </th>
+                    <td> {{ item["fix_id"] }}</td>
+                </tr>
+                <tr>
+                    <th> Идентификатор пользователя </th>
+                    <td> {{ item["user_id"] }}</td>
+                </tr>
+                <tr>
+                    <th> Название </th>
+                    <td> {{ item["name"] }}</td>
+                </tr>
+                </table>
+            {% endfor %}
+            <p></p>
+            {% if prev_url %}
+                <a href="{{ url_for('cars.get_all', page=prev_page) }}">Предыдущие машины</a>
+            {% endif %}
+            {% if next_url %}
+                <a href="{{ url_for('cars.get_all', page=next_page) }}" >Следующие машины</a>
+            {% endif %}
+    </form>
+{% endblock %}

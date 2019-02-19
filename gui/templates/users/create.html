@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Добавить механика{% endblock %}
+{% block body %}
+  <form action="" method=post>
+    <p>
+      <input type=text placeholder="Имя" name=l_name value="{{ request.form.l_name }}">
+    <p>
+      <input type=text placeholder="Пароль" name=password value="{{ request.form.password }}">
+    {% if flag == 1 %}
+       <p>
+       <input type=text placeholder="Права" name=admin value="{{ request.form.admin }}">
+    {% endif %}
+    <p>
+      <input type=submit value=Ok>
+    <p>
+
+  </form>
+{% endblock %}

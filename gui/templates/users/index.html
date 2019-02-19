@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<title>{% block title %}Пользователи{% endblock %}</title>
+    <p class=nav>
+    <a href="{{ url_for('users.get1') }}">Профиль пользователя</a>
+    <p class=nav>
+    <a href="{{ url_for('users.get_all') }}">Посмотреть список всех пользователей</a>
+    <p class=nav>
+    {% if flag == 'True' %}
+    <a href="{{ url_for('users.create') }}">Создать пользователя</a>
+    {% endif %}
+{% endblock %}

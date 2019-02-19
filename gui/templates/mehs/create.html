@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Добавить механика{% endblock %}
+{% block body %}
+  <form action="" method=post>
+    <p>
+      <input type=text placeholder="Имя" name=name value="{{ request.form.name }}">
+    <p>
+      <input type=text placeholder="Стаж" name=lvl value="{{ request.form.lvl }}">
+    <p>
+      <input type=text placeholder="Год рождения" name=year value="{{ request.form.year }}">
+
+      <p>
+      <input type=submit value=Ok>
+    <p>
+  </form>
+{% endblock %}

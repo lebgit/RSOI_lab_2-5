@@ -1,0 +1,41 @@
+<!doctype html>
+{% block head %}
+<title>{% block title %}РСОИ{% endblock %}</title>
+<meta charset=utf-8>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script type=text/javascript
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+{% endblock %}
+<style>
+.error              { background: #FF0000; ; color: #004B6B; padding: 5px 30px;
+               margin: 10px -30px;}
+.info               { background: #00FF00; ; color: #004B6B; padding: 5px 30px;
+               margin: 10px -30px;}
+</style>
+<div class=box>
+  {% block body_title %}
+    <h1><span>{{ self.title() }}</span></h1>
+  {% endblock %}
+
+
+    {% if g.logged_in %}
+    <p class=nav>
+        <a href="{{ url_for('users.logout') }}">Выйти</a>
+    </p>
+    <p class=nav>
+        <a href="{{ url_for('menu.index') }}">Главное меню</a>
+    </p>
+    {% endif %}
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+  {% endwith %}
+
+  {% block body %}{% endblock %}
+</div>

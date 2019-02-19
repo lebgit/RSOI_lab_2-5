@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Информация о машине{% endblock %}
+{% block body %}
+    <form action="" method="post">
+
+                {% for item in fixes %}
+                <table>
+                <tr>
+                    <th> Идентификатор </th>
+                    <td> {{ item["fix_id"] }}</td>
+                    <th> Кол-во механиков </th>
+                    <td> {{ item["number_of_mehs"] }}</td>
+                    <th> Общее количество машин </th>
+                    <td> {{ item["number_of_cars"] }}</td>
+                    <th> Дата создания </th>
+                    <td> {{ item["date_time"] }}</td>
+                </tr>
+                </table>
+                {% endfor %}
+    <p>
+        <h4 >Идентификатор пользователя: {{ user_id }}</h4>
+    </p>
+    <p>
+      <input type=text placeholder="Название" name=name value="{{ request.form.name }}">
+    <p>
+      <input type=text placeholder="Мастерская" name=fix_id value="{{ request.form.fix_id }}">
+
+     <p>
+      <input type=submit value=Ok>
+    <p>
+    </form>
+{% endblock %}

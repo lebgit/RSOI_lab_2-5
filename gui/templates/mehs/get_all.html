@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Информация о механиках{% endblock %}
+{% block body %}
+    <form action="" method="get">
+    <a>{{ fixes }}</a>
+            {% for item in mehs %}
+                <table>
+                <tr>
+                    <th> Идентификатор </th>
+                    <td> {{ item["meh_id"] }}</td>
+                </tr>
+                <tr>
+                    <th> Имя </th>
+                    <td> {{ item["name"] }}</td>
+                </tr>
+                <tr>
+                    <th> Стаж </th>
+                    <td> {{ item["lvl"] }}</td>
+                </tr>
+                <tr>
+                    <th> Год рождения </th>
+                    <td> {{ item["year"] }}</td>
+                </tr>
+                </table>
+                <a href="{{ url_for('mehs.delete', meh_id=item["meh_id"] )}}">Удалить механика</a>
+
+                {% if item["meh_id"] not in fixes %}
+                <a href="{{ url_for('mehs.patchadd', meh_id=item["meh_id"] )}}">Устроить механика</a>
+                {% endif %}
+            {% endfor %}
+            <p></p>
+            {% if prev_url %}
+                <a href="{{ url_for('mehs.get_all', page=prev_page) }}">Предыдущие механики</a>
+            {% endif %}
+            {% if next_url %}
+                <a href="{{ url_for('mehs.get_all', page=next_page) }}" >Следующие механики</a>
+            {% endif %}
+    </form>
+{% endblock %}

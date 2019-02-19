@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}Вход{% endblock %}
+{% block body %}
+    <form action="" method="post">
+        <p>
+            <input type=text placeholder="Логин" name=l_name value="{{ request.form.l_name }}">
+        </p>
+        <p>
+            <input type="password" placeholder="Пароль" name=password value="{{ request.form.password }}">
+        </p>
+        <p>
+            <input type="submit" value="Войти">
+            <a href="{{ url_for('users.APIlogin1') }}">Вход через API</a>
+        </p>
+
+        <p>
+            <a href="{{ url_for('users.create') }}">Регистрация</a>
+        </p>
+    </form>
+{% endblock %}
