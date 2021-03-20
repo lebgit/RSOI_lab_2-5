@@ -10,7 +10,7 @@ Flask-OAuth==0.12
 Flask-RESTful==0.3.6
 httplib2==0.12.0
 idna==2.7
-Jinja2==2.10.1
+Jinja2==2.11.3
 jsonpickle==1.0
 MarkupSafe==1.0
 MongoAlchemy==0.19
